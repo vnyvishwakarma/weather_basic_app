@@ -1,5 +1,10 @@
 body {
     font-family: Arial;
     padding: 20px;
-    background: #cff6cf;
+    
+    background: #d7fbe8;
+  }
+
+  h2 {
+      color: #b693fe;
   }

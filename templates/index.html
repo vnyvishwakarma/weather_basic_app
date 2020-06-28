@@ -13,7 +13,7 @@ body {
     font-family: Arial;
     padding: 20px;
     
-    background: #DDF3F5;
+    background: #d7fbe8;
   }
 
 /* Header/Blog Title */
@@ -22,6 +22,7 @@ body {
   font-size: 40px;
   text-align: center;
   background: white;
+  color: #b693fe;
 }
 
 /* Create two unequal columns that floats next to each other */
@@ -59,13 +60,6 @@ body {
   clear: both;
 }
 
-/* Footer */
-.footer {
-  padding: 20px;
-  text-align: center;
-  background: #ddd;
-  margin-top: 20px;
-}
 
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 800px) {
@@ -82,11 +76,21 @@ body {
   <h2>Weather Application</h2>
 </div>
 
+
+<form action="/" method="POST">
+
+  <label for="city">Enter your City name : </label><br>
+  <input type="text" id="city" name="city" value="New Delhi"><br>
+  <input type="submit" value="Submit">
+</form> 
+
+
+
 <div class="row">
   <div class="leftcolumn">
     <div class="card">
       <h2>{{ weather.city }} Temperature </h2>
-      <h5>Temerature of {{ weather.city }} City is : {{ weather.temperature }} in Degree Celsius</h5>
+      <h5>Temerature of {{ weather.city }} City is : {{ weather.temperature }} Degree Celsius</h5>
       <div class="fakeimg" style="height:80px;">
         <img src="http://openweathermap.org/img/w/{{ weather.icon }}.png" alt=Image>
       </div>

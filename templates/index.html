@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="icon" href="favicon.ico" type="image/gif" sizes="16x16">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/main.css">
 <style>
 * {
+  box-sizing: border-box;
+}
+input[type=text] {
+  width: 20%;
+  padding: 12px 20px;
+  margin: 8px 0;
   box-sizing: border-box;
 }
 
@@ -12,8 +19,7 @@
 body {
     font-family: Arial;
     padding: 20px;
-    
-    background: #d7fbe8;
+    background: white;
   }
 
 /* Header/Blog Title */
@@ -21,8 +27,14 @@ body {
   padding: 30px;
   font-size: 40px;
   text-align: center;
-  background: white;
+  background: #e84a5f;
   color: #b693fe;
+}
+
+.data {
+
+  color: #b693fe;
+
 }
 
 /* Create two unequal columns that floats next to each other */
@@ -30,6 +42,7 @@ body {
 .leftcolumn {   
   float: left;
   width: 75%;
+  background-color: #ffe2e2;
 }
 
 /* Right column */
@@ -41,23 +54,46 @@ body {
 
 /* Fake image */
 .fakeimg {
-  background-color: #aaa;
+  background-color: #ffe2e2;
   width: 100%;
   padding: 20px;
 }
 
+/* Image class */
+.imageclass {
+  background-color: #30e3ca;
+}
+
 /* Add a card effect for articles */
 .card {
-   background-color: white;
+  background-color: #ffe2e2;
    padding: 20px;
    margin-top: 20px;
 }
 
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
+/*
+##################### Button CSS
+*/
+
+.button {
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 
 
@@ -79,9 +115,9 @@ body {
 
 <form action="/" method="POST">
 
-  <label for="city">Enter your City name : </label><br>
-  <input type="text" id="city" name="city" value="New Delhi"><br>
-  <input type="submit" value="Submit">
+  <label for="city">Enter your City Name :</label><br>
+  <input class="card" type="text" id="city" name="city" value="New Delhi"><br>
+  <input class="button" type="submit" value="Submit">
 </form> 
 
 
@@ -89,13 +125,13 @@ body {
 <div class="row">
   <div class="leftcolumn">
     <div class="card">
-      <h2>{{ weather.city }} Temperature </h2>
+      <h2 class="data">{{ weather.city }} Temperature </h2>
       <h5>Temerature of {{ weather.city }} City is : {{ weather.temperature }} Degree Celsius</h5>
       <div class="fakeimg" style="height:80px;">
-        <img src="http://openweathermap.org/img/w/{{ weather.icon }}.png" alt=Image>
+        <img class="imageclass" src="http://openweathermap.org/img/w/{{ weather.icon }}.png" alt=Image>
       </div>
       <p>Below is Weather description ...</p>
-      <p>{{ weather.description }}</p>
+      <p class="data">{{ weather.description }}</p>
     </div>
    
  

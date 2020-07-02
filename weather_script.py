@@ -2,10 +2,14 @@ import requests
 
 url = 'http://api.openweathermap.org/data/2.5/weather?q={}&appid='
 
-city_name = 'New Delhi'
+city_name = 'New Delhi1'
+isError = 0
 
 response = requests.get(url.format(city_name)).json()
-
+try:
+    response = requests.get(url.format(city_name)).json()
+except:
+    pass
 
 
 weather_of_city = {

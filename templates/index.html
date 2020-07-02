@@ -3,7 +3,8 @@
 <head>
 <link rel="icon" href="favicon.ico" type="image/gif" sizes="16x16">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/main.css">
+
+
 <style>
 * {
   box-sizing: border-box;
@@ -35,28 +36,6 @@ body {
 
   color: #b693fe;
 
-}
-
-/* Create two unequal columns that floats next to each other */
-/* Left column */
-.leftcolumn {   
-  float: left;
-  width: 75%;
-  background-color: #ffe2e2;
-}
-
-/* Right column */
-.rightcolumn {
-  float: left;
-  width: 25%;
-  padding-left: 20px;
-}
-
-/* Fake image */
-.fakeimg {
-  background-color: #ffe2e2;
-  width: 100%;
-  padding: 20px;
 }
 
 /* Image class */
@@ -97,13 +76,6 @@ body {
 }
 
 
-/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 800px) {
-  .leftcolumn, .rightcolumn {   
-    width: 100%;
-    padding: 0;
-  }
-}
 </style>
 </head>
 <body>
@@ -112,7 +84,7 @@ body {
   <h2>Weather Application</h2>
 </div>
 
-
+<div>
 <form action="/" method="POST">
 
   <label for="city">Enter your City Name :</label><br>
@@ -120,22 +92,30 @@ body {
   <input class="button" type="submit" value="Submit">
 </form> 
 
+</div>
 
 
-<div class="row">
-  <div class="leftcolumn">
-    <div class="card">
+    <div >
+      {% if isError %}
+      <h2 class="data"> Please cross check {{ city }} name </h2>
+      <div >
+        <img class="imageclass" src="/static/404.jpeg" alt=Image>
+       
+      </div>
+  
+      {% else %}
+ 
       <h2 class="data">{{ weather.city }} Temperature </h2>
       <h5>Temerature of {{ weather.city }} City is : {{ weather.temperature }} Degree Celsius</h5>
-      <div class="fakeimg" style="height:80px;">
+      <div>
         <img class="imageclass" src="http://openweathermap.org/img/w/{{ weather.icon }}.png" alt=Image>
       </div>
       <p>Below is Weather description ...</p>
       <p class="data">{{ weather.description }}</p>
+      {% endif %}
     </div>
    
  
-
 
 </body>
 </html>

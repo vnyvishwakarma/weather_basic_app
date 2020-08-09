@@ -11,7 +11,7 @@ def index():
     if request.method == 'POST' :
         city_name = request.form['city']
 
-        url = 'http://api.openweathermap.org/data/2.5/weather?q={}&appid='
+        url = 'http://api.openweathermap.org/data/2.5/weather?q={}&appid=8f5ca370c7041d066e0026e9af47526f'
         isError = 0
 
         try:
@@ -33,7 +33,7 @@ def index():
 
     else:
 
-        url = 'http://api.openweathermap.org/data/2.5/weather?q={}&appid='
+        url = 'http://api.openweathermap.org/data/2.5/weather?q={}&appid=8f5ca370c7041d066e0026e9af47526f'
         city_name = 'Lucknow'
         response = requests.get(url.format(city_name)).json()
         temperature_in_degree = "{:10.2f}".format(((response['main']['temp']) - 273.15))
